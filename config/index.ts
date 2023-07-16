@@ -1,4 +1,5 @@
 import { path } from '../deps.ts';
+import { DEFAULT_DIR } from '../utils/constants.ts';
 
 import {
   parseJsonFile,
@@ -48,7 +49,7 @@ export async function getConfig(
       );
       await Deno.mkdir(path.parse(cfgFile).dir, { recursive: true });
       await Deno.writeTextFile(cfgFile, `{ "cfg": "${cfgFile}" }`);
-      config = { cfg: cfgFile };
+      config = { cfg: cfgFile, file: DEFAULT_DIR };
     } else {
       logError(err);
       return;
