@@ -3,6 +3,8 @@
     "std/": "https://deno.land/std@0.177.0/"
   },
   "tasks": {
-    "dev": "deno run --allow-run --allow-read --allow-env --allow-write index.ts"
+    "dev": "deno run --allow-run --allow-read --allow-env --allow-write index.ts",
+    "compile": "deno compile --allow-run --allow-read --allow-env --allow-write --output=./reconfiger ./index.ts",
+    "deploy": "deno task compile && mv ./reconfiger $HOME/bin"
   }
 }
