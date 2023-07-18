@@ -1,10 +1,10 @@
 // @deno-types="../app.d.ts"
 
-import { modify, applyEdits, format } from "npm:jsonc-parser";
+import { modify, applyEdits, format } from 'npm:jsonc-parser';
 
 async function readFile(filepath: string): Promise<string> {
   const data = await Deno.readFile(filepath);
-  const decoder = new TextDecoder("utf-8");
+  const decoder = new TextDecoder('utf-8');
   const text = decoder.decode(data);
   return text;
 }

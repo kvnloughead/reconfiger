@@ -1,3 +1,4 @@
-import set from "./set.ts";
+import get from './get.ts';
+import set from './set.ts';
 
-export { set };
+export { get, set };

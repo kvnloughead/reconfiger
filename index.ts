@@ -3,7 +3,7 @@
 
 import { Command, CompletionsCommand, parse } from './deps.ts';
 
-import { set } from './commands/index.ts';
+import { set, get } from './commands/index.ts';
 
 import { getConfig } from './config/index.ts';
 import { DEFAULT_CONFIG, PROGRAM_NAME } from './utils/constants.ts';
@@ -57,6 +57,13 @@ program
   .action((options: Options, ...args: string[]) => {
     options = { ...options, ...config };
     set(options, args);
+  })
+  // get subcommand
+  .command('g, get <key>', 'Outputs value of <key> to stdout.')
+  .arguments('<keys:string:keys>')
+  .action((options: Options, ...args: string[]) => {
+    options = { ...options, ...config };
+    get(options, args);
   });
 
 await program.command('completions', new CompletionsCommand()).parse(Deno.args);
